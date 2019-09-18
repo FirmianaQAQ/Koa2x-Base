@@ -1,13 +1,18 @@
 const Koa = require('koa')
-let Router = require('koa-router');
-let cors = require('koa-cors');
+const router = require('koa-router')()
 
-const App = new Koa()
+const config = require('./config/index.js')
 
-App.use(async (ctx, next) => {
+const app = new Koa()
+
+// koa设置
+app.keys = ['Firmiana', 'Firmiana Yang']
+
+app.use(async (ctx, next) => {
   ctx.body = "Hello Koa"
-  await next();
 })
-App.listen(12888, () => {
-  console.log('\x1B[36m%s\x1B[0m', 'Server Run At Port:12888 ... ');
+
+//服务启动
+app.listen(config.port, () => {
+  console.log('\x1B[36m%s\x1B[0m', `✔ [ ${app.env} ] >>> Server Listen At Port ${config.port} ... `);
 })

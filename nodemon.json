@@ -1,34 +1,7 @@
 {
   "restartable": "rs",
-  "colours": true,
-  "ignore": [
-    ".idea",
-    "*.html",
-    "*.css",
-    "*.txt",
-    ".git",
-    "cache",
-    "www",
-    "sql",
-    "output",
-    "tests",
-    "tools",
-    "mochawesome-report",
-    "mochawesome-reports"
-  ],
-  "watch": [
-    "config",
-    "controller",
-    "libraries",
-    "library",
-    "lib",
-    "service",
-    "middleware",
-    "models",
-    "router",
-    "routers",
-    "index.js",
-    "api"
-  ],
+  "colours": false,
+  "ignore": [],
+  "watch": [],
   "verbose": false
 }
