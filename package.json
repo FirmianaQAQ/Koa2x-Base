@@ -1,0 +1,19 @@
+{
+  "name": "koa2x-base",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "koa": "^2.8.1",
+    "koa-cors": "^0.0.16",
+    "koa-router": "^7.4.0",
+    "nodemon": "^1.19.2"
+  }
+}
