@@ -33,7 +33,7 @@ let register = async (name, password) => {
 let getUserList = async () => {
   let res = await UserInfoModel.findDataByName()
 
-  reObj.code = 400
+  reObj.code = 200
   reObj.message = "成功！"
   reObj.data = res
 
