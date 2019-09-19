@@ -1,7 +1,12 @@
-const router = require('koa-router')()
+/**
+ * @Author: Firmiana
+ * @Date: 2019-09-19 16:04:01
+ * @Desc: 统一输出Router
+ */
 
-const { register } = require('../controllers/sys')
-
-router.post('/sys/register', register)
-
-module.exports = router
+module.exports = function (router) {
+  const allRoutes = require('requireindex')(__dirname)
+  for (const key in allRoutes) {
+    allRoutes[key](router)
+  }
+}

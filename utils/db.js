@@ -11,14 +11,13 @@ const pool = mysql.createPool({
 
 
 let db = function (sql, values) {
-
+  values = values || ''
   return new Promise((resolve, reject) => {
     pool.getConnection(function (err, connection) {
       if (err) {
         resolve(err)
       } else {
         connection.query(sql, values, (err, rows) => {
-
           if (err) {
             reject(err)
           } else {

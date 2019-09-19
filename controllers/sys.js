@@ -1,32 +1,14 @@
-const UserInfoModel = require("../models/UserInfoModel"),
-  md5 = require("md5");
+const sysServ = require("../service/sys")
 
-async function register(ctx, next) {
+let register = async (ctx, next) => {
   const { name, password } = ctx.request.body
-
-  await UserInfoModel.findDataByName(name).then(result => {
-    if (result.length) {
-      ctx.body = {
-        code: 400,
-        data: {},
-        message: "用户名已存在",
-        t: Number(new Date())
-      }
-    } else {
-      ctx.body = {
-        code: 200,
-        data: {},
-        message: "注册成功！",
-        t: Number(new Date())
-      }
-      UserInfoModel.insertData([
-        name,
-        md5(password)
-      ])
-    }
-  })
+  ctx.body = await sysServ.register(name, password) || {}
+}
+let getUserList = async (ctx, next) => {
+  ctx.body = await sysServ.getUserList() || {}
 }
 
 module.exports = {
-  register
+  register,
+  getUserList
 }
