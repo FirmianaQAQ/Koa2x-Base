@@ -11,9 +11,13 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@koa/cors": "^3.0.0",
     "koa": "^2.8.1",
-    "koa-cors": "^0.0.16",
+    "koa-body": "^4.1.1",
     "koa-router": "^7.4.0",
-    "nodemon": "^1.19.2"
+    "md5": "^2.2.1",
+    "mysql": "^2.17.1",
+    "nodemon": "^1.19.2",
+    "path": "^0.12.7"
   }
 }
