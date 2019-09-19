@@ -1,11 +1,11 @@
-const sysServ = require("../service/sys")
+const userServ = require("../service/user")
 
 let register = async (ctx, next) => {
   const { name, password } = ctx.request.body
-  ctx.body = await sysServ.register(name, password) || {}
+  ctx.body = await userServ.register(name, password) || {}
 }
 let getUserList = async (ctx, next) => {
-  ctx.body = await sysServ.getUserList() || {}
+  ctx.body = await userServ.getUserList() || {}
 }
 
 module.exports = {
