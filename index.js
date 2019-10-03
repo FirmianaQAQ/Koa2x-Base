@@ -1,3 +1,3 @@
-// require('./lib/firmiana').init()
+require('./lib/firmiana').init()
 
-const ttt = require('./lib/redis')
+const ttt = require('./lib/session')

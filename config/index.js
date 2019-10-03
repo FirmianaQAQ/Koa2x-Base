@@ -14,6 +14,13 @@ module.exports = {
     password: '123456789', // 数据库密码
   },
 
+  redis: {
+    host: 'localhost',
+    port: 6379,
+    db: 7,
+    auth: ''
+  },
+
   // baseApi: '/', //可用于区分多项目 暂时用不到
 
   // 日志存放 logger为false就不会记录任何日志了
