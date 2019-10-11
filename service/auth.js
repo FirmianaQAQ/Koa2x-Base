@@ -33,10 +33,10 @@ let login = async (account, pwd) => {
     reObj.code = 200
     reObj.message = "登陆成功！"
     reObj.data = res
+  } else {
+    reObj.code = 401
+    reObj.message = "账号或密码不正确，登录失败！"
   }
-
-  // reObj.code = 401
-  // reObj.message = "账号或密码不正确，登录失败！"
   return reObj
 }
 
