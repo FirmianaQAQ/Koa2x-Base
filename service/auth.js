@@ -41,7 +41,6 @@ let login = async (account, pwd) => {
 }
 
 let accountLogin = async (account, pwd) => {
-  // console.log(account, pwd)
   const res = await UserLoginPwdModel.getUserInfoByAccount([
     account,
     md5(pwd)
