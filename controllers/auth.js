@@ -45,6 +45,35 @@ let login = async (ctx, next) => {
   }
 }
 
+let loginOut = async (ctx, next) => {
+  try {
+    const uInfo = await authServ.getUidByToken(ctx.request.header.token)
+    // 0会员管理系统，1小程序，2iOS，3Android
+    const clientMap = {
+      0: 'web',
+      1: 'miniprogram',
+      2: 'app',
+      3: 'app'
+    }
+    ctx.body = await authServ.logout(uInfo.uid, clientMap[0]) || {}
+  } catch (e) {
+    throw (e)
+  }
+}
+let info = async (ctx, next) => {
+  try {
+    const uInfo = await authServ.getUidByToken(ctx.request.header.token)
+    reObj.data = { ...uInfo }
+    reObj.code = 200
+    reObj.message = "获取用户信息成功！"
+    ctx.body = reObj
+  } catch (e) {
+    throw (e)
+  }
+}
+
 module.exports = {
-  login
+  login,
+  loginOut,
+  info
 }

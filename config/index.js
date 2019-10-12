@@ -45,4 +45,5 @@ module.exports = {
       'android': 30 * 24 * 60 * 60 // Android
     }
   },
+
 }
