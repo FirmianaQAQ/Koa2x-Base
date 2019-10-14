@@ -63,6 +63,13 @@ let loginOut = async (ctx, next) => {
 let info = async (ctx, next) => {
   try {
     const uInfo = await authServ.getUidByToken(ctx.request.header.token)
+
+    if (!uInfo) {
+      reObj.code = 401
+      reObj.message = "获取用户信息失败！"
+      ctx.body = reObj
+      return
+    }
     reObj.data = { ...uInfo }
     reObj.code = 200
     reObj.message = "获取用户信息成功！"
