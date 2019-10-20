@@ -5,12 +5,7 @@
  */
 
 const authServ = require("../service/auth"),
-  reObj = {
-    code: 0,
-    data: {},
-    msg: "",
-    t: Number(new Date())
-  }
+  reObj = require("../lib/reObj")
 
 let login = async (ctx, next) => {
   try {

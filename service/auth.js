@@ -8,12 +8,7 @@ const UserLoginPwdModel = require("../models/UserLoginPwdModel"),
   RoleModel = require('../models/RoleModel'),
   session = require('../lib/session'),
   md5 = require("md5"),
-  reObj = {
-    code: 0,
-    data: {},
-    msg: "",
-    t: Number(new Date())
-  }
+  reObj = require("../lib/reObj")
 
 let login = async (account, pwd) => {
   let loginType = 'web'
@@ -59,7 +54,8 @@ let login = async (account, pwd) => {
 
     reObj.code = 200
     reObj.msg = "登陆成功！"
-    reObj.data = res
+    // login只返回token
+    reObj.data = res.token
   } else {
     reObj.code = 401
     reObj.msg = "账号或密码不正确，登录失败！"
