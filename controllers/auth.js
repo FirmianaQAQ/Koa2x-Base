@@ -8,7 +8,7 @@ const authServ = require("../service/auth"),
   reObj = {
     code: 0,
     data: {},
-    message: "",
+    msg: "",
     t: Number(new Date())
   }
 
@@ -16,24 +16,26 @@ let login = async (ctx, next) => {
   try {
     const { account, pwd } = ctx.request.body
     if (!account) {
-      reObj.message = "account必填且不能为空！"
+      reObj.code = 400
+      reObj.msg = "账号必填且不能为空！"
       ctx.body = reObj
       return
     }
     if (!pwd) {
-      reObj.message = "pwd必填且不能为空！"
+      reObj.code = 400
+      reObj.msg = "密码必填且不能为空！"
       ctx.body = reObj
       return
     }
     if (!/^[A-Za-z0-9_]{4,20}$/.test(account)) {
       reObj.code = 400
-      reObj.message = "account要求为4到20位，大小写字母、数字或下横杠！"
+      reObj.msg = "账号要求为4到20位，大小写字母、数字或下横杠！"
       ctx.body = reObj
       return
     }
     if (!/^[A-Za-z0-9_]{6,20}$/.test(pwd)) {
       reObj.code = 400
-      reObj.message = "pwd要求为6到20位，大小写字母、数字或下横杠！"
+      reObj.msg = "密码要求为6到20位，大小写字母、数字或下横杠！"
       ctx.body = reObj
       return
     }
@@ -66,13 +68,13 @@ let info = async (ctx, next) => {
 
     if (!uInfo) {
       reObj.code = 401
-      reObj.message = "获取用户信息失败！"
+      reObj.msg = "获取用户信息失败！"
       ctx.body = reObj
       return
     }
     reObj.data = { ...uInfo }
     reObj.code = 200
-    reObj.message = "获取用户信息成功！"
+    reObj.msg = "获取用户信息成功！"
     ctx.body = reObj
   } catch (e) {
     throw (e)

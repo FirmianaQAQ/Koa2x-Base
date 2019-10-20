@@ -11,7 +11,7 @@ const UserLoginPwdModel = require("../models/UserLoginPwdModel"),
   reObj = {
     code: 0,
     data: {},
-    message: "",
+    msg: "",
     t: Number(new Date())
   }
 
@@ -28,7 +28,7 @@ let login = async (account, pwd) => {
 
     if (!uInfo) {
       reObj.code = 401
-      reObj.message = "用户不存在！"
+      reObj.msg = "用户不存在！"
       return reObj
     }
     // 处理超级管理员
@@ -58,11 +58,11 @@ let login = async (account, pwd) => {
     res.token = token
 
     reObj.code = 200
-    reObj.message = "登陆成功！"
+    reObj.msg = "登陆成功！"
     reObj.data = res
   } else {
     reObj.code = 401
-    reObj.message = "账号或密码不正确，登录失败！"
+    reObj.msg = "账号或密码不正确，登录失败！"
   }
   return reObj
 }
@@ -89,7 +89,7 @@ let logout = async (uid, type) => {
   // 登录类型 web|miniprogram|app|app
   await session.loginout(uid, type)
   reObj.code = 200
-  reObj.message = "登出成功！"
+  reObj.msg = "登出成功！"
   return reObj
 }
 
