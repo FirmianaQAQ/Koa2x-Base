@@ -6,7 +6,7 @@
 const { login, loginOut, info } = require('../controllers/auth')
 
 module.exports = function (app) {
-  // 登陆
+  // 登录
   app.post('/auth/login', login)
   // 登出
   app.post('/auth/loginOut', loginOut)

@@ -53,7 +53,7 @@ let login = async (account, pwd) => {
     res.token = token
 
     reObj.code = 200
-    reObj.msg = "登陆成功！"
+    reObj.msg = "登录成功！"
     // login只返回token
     reObj.data = res.token
   } else {
