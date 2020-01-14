@@ -63,6 +63,7 @@ let info = async (ctx, next) => {
 
     if (!uInfo) {
       reObj.code = 401
+      reObj.data = {}
       reObj.msg = "获取用户信息失败！"
       ctx.body = reObj
       return
